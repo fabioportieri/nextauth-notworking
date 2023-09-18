@@ -6,7 +6,8 @@ import { useEffect } from "react";
 export default function Home() {
   const { data: session, status } = useSession();
   console.log("auth status", status);
-  console.log("auth session", session);
+
+  console.log("auth session ?", session);
 
   useEffect(() => {
     if (status === "unauthenticated") signIn("keycloak");
