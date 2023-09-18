@@ -1,7 +1,8 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import KeycloakProvider from "next-auth/providers/keycloak";
-const authOptions = {
+
+const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
     KeycloakProvider({
@@ -17,6 +18,5 @@ const authOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
 };
-const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);
